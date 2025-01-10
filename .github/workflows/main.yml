@@ -1,0 +1,15 @@
+name: ci-test
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run JMeter Tests
+        uses: QAInsights/PerfAction@v3.1
+        with:
+          test-plan-path: ci-actions.jmx
+          args: ""
